@@ -105,9 +105,9 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
        	System.out.println(card);
        	panel2.add(card);*/
 	   	Stack<Card> s1 = new Stack<>();
-	   	s1.push(new Card(1, Card.Suit.Spades));
+	   	s1.push(new Card(1, Card.Suit.Diamonds));
 	   	s1.push(new Card(2, Card.Suit.Clubs));
-		s1.push(new Card(4, Card.Suit.Clubs));
+		s1.push(new Card(4, Card.Suit.Hearts));
 	   	panel4.add(drawPile(s1));
     	this.setVisible(true);
     }
@@ -122,7 +122,7 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 		layerPane.setPreferredSize(new Dimension(500,500));
 		for (int i = 0; i < cards.length; i++)
 		{
-			((Card)cards[i]).setBounds(i * 5, i * 5, 80, 100);
+			((Card)cards[i]).setBounds(i * 10, i * 10, 80, 100);
 			layerPane.add((Component) cards[i], i);
 		}
 		return layerPane;
