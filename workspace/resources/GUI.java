@@ -23,12 +23,11 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 	   this.game= game;
         //Create and set up the window.
        setTitle("Solitaire");
-       setSize(1019,603);
+       setSize(1016,602);
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	   //make it not resizeable so it won't mess up the layout
 	   setResizable(false);
 		
-	   
-       
        // this supplies the background
        	try {
 		System.out.println(getClass().toString());
@@ -41,6 +40,7 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 		setLayout(new GridBagLayout());// set the layout
     	GridBagConstraints c = new GridBagConstraints();// special class used to configure how items should fit into the container.
 	   	//getContentPane().setLayout(new GridLayout(2,1));
+		//the four panels where cards will be
 	   	JPanel panel = new JPanel();
 	   	c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.15;
