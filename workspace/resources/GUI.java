@@ -23,8 +23,9 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 	   this.game= game;
         //Create and set up the window.
        setTitle("Solitaire");
-       setSize(1021,605);
+       setSize(1019,603);
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	   setResizeable(false);
 		
 	   
        
@@ -175,3 +176,4 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 		
 	}
 }
+
