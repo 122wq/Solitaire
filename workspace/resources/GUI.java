@@ -25,7 +25,7 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
        setTitle("Solitaire");
        setSize(1019,603);
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	   setResizeable(false);
+	   setResizable(false);
 		
 	   
        
@@ -47,50 +47,43 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 		c.ipady = 200;
         c.gridx = 0;
         c.gridy = 0;
-	   	panel.setBorder(new BevelBorder(BevelBorder.RAISED, Color.RED, Color.RED));
-	   	panel.setSize(new Dimension(200,165));
-	   	panel.add(new JLabel("Card Pile"));
+	   	panel.setBorder(BorderFactory.createTitledBorder(new BevelBorder(BevelBorder.RAISED, Color.RED, Color.RED), "Card Pile"));
+	   	//panel.setSize(new Dimension(200,165));
 	   	panel.setOpaque(false);
 	   	add(panel,c);
-
+	   
 	   	JPanel panel2 = new JPanel();
+	   	c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.25;
+        c.gridx = 1;
+        c.gridy = 0;
+	   	panel2.setBorder(BorderFactory.createTitledBorder(new BevelBorder(BevelBorder.RAISED, Color.BLUE, Color.BLUE), "Card selection pile"));
+	   	//panel2.setSize(new Dimension(250,165));
+	   	//panel2.setLocation(200,0);
+	   	panel2.setOpaque(false);
+	   	add(panel2,c);
+
+	   	JPanel panel3 = new JPanel();
+	   	c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.6;
+        c.gridx = 2;
+        c.gridy = 0;
+	   	panel3.setBorder(BorderFactory.createTitledBorder(new BevelBorder(BevelBorder.RAISED, Color.GREEN, Color.GREEN), "Card sorted piles"));
+	   	//panel3.setSize(new Dimension(550,165));
+	   	//panel3.setLocation(450,0);
+	   	panel3.setOpaque(false);
+	   	add(panel3,c);
+
+		JPanel panel4 = new JPanel();
 	   	c.fill = GridBagConstraints.HORIZONTAL;
 	   	c.weightx = 0.5;
 		c.ipady = 350;
         c.gridx = 0;
         c.gridy = 2;
 		c.gridwidth = 3;
-	   	panel2.setBorder(new BevelBorder(BevelBorder.RAISED, Color.YELLOW, Color.YELLOW));
-	   	panel2.setSize(new Dimension(1000,400));
-	   	panel2.setLocation(0,165);
-	   	panel2.setOpaque(false);
-	   	panel2.add(new JLabel("Playing field"));
-	   	add(panel2,c);
-	   
-	   	JPanel panel3 = new JPanel();
-	   	c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.25;
-        c.gridx = 1;
-		c.ipady = 200;
-        c.gridy = 0;
-		c.gridwidth = 1;
-	   	panel3.setBorder(new BevelBorder(BevelBorder.RAISED, Color.BLUE, Color.BLUE));
-	   	panel3.setSize(new Dimension(250,165));
-	   	panel3.setLocation(200,0);
-	   	panel3.add(new JLabel("Card selection pile"));
-	   	panel3.setOpaque(false);
-	   	add(panel3,c);
-
-	   	JPanel panel4 = new JPanel();
-	   	c.fill = GridBagConstraints.HORIZONTAL;
-        c.weightx = 0.6;
-        c.gridx = 2;
-        c.gridy = 0;
-		c.gridwidth = 1;
-	   	panel4.setBorder(new BevelBorder(BevelBorder.RAISED, Color.GREEN, Color.GREEN));
-	   	panel4.setSize(new Dimension(550,165));
-	   	panel4.setLocation(450,0);
-	   	panel4.add(new JLabel("Card sorted piles"));
+	   	panel4.setBorder(BorderFactory.createTitledBorder(new BevelBorder(BevelBorder.RAISED, Color.YELLOW, Color.YELLOW), "Playing field"));
+	   	//panel4.setSize(new Dimension(1000,400));
+	   	//panel4.setLocation(0,165);
 	   	panel4.setOpaque(false);
 	   	add(panel4,c);
 
