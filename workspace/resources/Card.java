@@ -99,7 +99,10 @@ public class Card extends JPanel{
 			
 			try {
 				// Load the image for the current file
-				URL url = getClass().getResource(this.toString() +".png");
+				
+				System.out.println(this.toString() + ".png");
+				URL url = getClass().getResource(this.toString() + ".png");
+
 				image = ImageIO.read(url);
 				//System.out.println(url);
 				URL urlback = getClass().getResource("back.png"); 
