@@ -102,7 +102,7 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 	   	s1.push(new Card(1, Card.Suit.Diamonds));
 	   	s1.push(new Card(2, Card.Suit.Clubs));
 		s1.push(new Card(4, Card.Suit.Hearts));
-	   	panel4.add(drawPile(s1));
+	   	panel3.add(drawPile(s1));
     	this.setVisible(true);
     }
 
