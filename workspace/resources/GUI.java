@@ -7,6 +7,7 @@ import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -103,6 +104,7 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 	   	s1.push(new Card(2, Card.Suit.Clubs));
 		s1.push(new Card(4, Card.Suit.Hearts));
 	   	panel3.add(drawPile(s1));
+		panel.add(new Card(1, Card.Suit.Diamonds));
     	this.setVisible(true);
     }
 
@@ -113,17 +115,29 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 
    		cards = stackIn.toArray(); //please note we convert this stack to an array so that we can iterate through it backwards while drawing. You’ll need to cast each element inside cards to a <Card> in order to use the methods to adjust their position
 		JLayeredPane layerPane = new JLayeredPane();
-		layerPane.setPreferredSize(new Dimension(500,500));
+		layerPane.addMouseListener(this);
+
+		layerPane.setPreferredSize(new Dimension(500,1000));
 		for (int i = 0; i < cards.length; i++)
 		{
 			((Card)cards[i]).setBounds(i * 10, i * 10, 80, 100);
+			((Card)cards[i]).addMouseListener(this);
+			((Card)cards[i]).addMouseMotionListener(this);
 			layerPane.add((Component) cards[i], i);
 		}
 		return layerPane;
 	}
+	
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+		//int newX = ((JComponent) arg0.getSource()).getLocation().x + arg0.getX() - x;
+		//int newY = ((JComponent) arg0.getSource()).getLocation().y + arg0.getX() - y;
+		
+		((JComponent) arg0.getSource()).setLocation(arg0.getX(), arg0.getY());
+		System.out.println("mouseX Dragged to " + arg0.getX());
+		System.out.println("mouseY Dragged to " + arg0.getY());
+		
 		
 	}
 
@@ -136,6 +150,7 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+	
 		
 	}
 
@@ -154,6 +169,19 @@ public class GUI extends JFrame implements ActionListener, MouseListener, MouseM
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+		int buttonsDownMask = MouseEvent.BUTTON1_DOWN_MASK;
+		int x = arg0.getX();
+		int y = arg0.getY();
+		System.out.println(arg0.getSource().toString());
+
+		if (game.checkPress(x, y) && arg0.getSource() instanceof Card)
+		{
+			System.out.println("press");
+			System.out.println("pressX: " + arg0.getX());
+			return;
+		}
+		repaint();
+		
 		
 	}
 
